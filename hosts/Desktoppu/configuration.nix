@@ -30,7 +30,6 @@
    boot.loader.efi.canTouchEfiVariables = true;
 
   # Networking 
-   networking.hostName = "Desktoppu";   
    networking.networkmanager.enable = true;    
   # Time Zone
    time.timeZone = "Africa/Johannesburg";
