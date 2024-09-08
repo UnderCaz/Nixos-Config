@@ -2,11 +2,11 @@
 {
   options = 
   {
-    kdenlive.enable = lib.mkEnableOptions "enables kdenlive";
+    kdenlive.enable = lib.mkEnableOption "enables kdenlive";
   };
   
   config = lib.mkIf config.kdenlive.enable 
   {
-    environement.systemPackages = with pkgs; [ kdePackages.kdenlive ];
+    environment.systemPackages = with pkgs; [ kdePackages.kdenlive ];
   };
-};
+}
