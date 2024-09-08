@@ -1,7 +1,8 @@
 #!/bin/sh
 
 pushd /home/$(whoami)/.dotfiles
-  nix-shell -p git --command "git pull https://github.com/UnderCaz/Nixos-Config.git"
+  nix-shell -p git 
+  git pull https://github.com/UnderCaz/Nixos-Config.git
   sudo nixos-rebuild build --flake .
 
   # remove link
@@ -14,4 +15,6 @@ pushd /home/$(whoami)/.dotfiles
   else
 	  sudo nixos-rebuild switch --flake .
   fi
+  
+  exit
 popd
