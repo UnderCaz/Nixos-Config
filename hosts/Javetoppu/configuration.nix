@@ -18,6 +18,7 @@
   
   blender.enable = true;
   kdenlive.enable = true;
+  kdeconnect.enable = true;
 
   # Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -38,6 +39,7 @@
   [  
     vim
     vesktop
+    whatsapp-for-linux
   ];
    
   # Allow Unfree
