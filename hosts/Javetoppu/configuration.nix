@@ -37,6 +37,7 @@
   environment.systemPackages = with pkgs; 
   [  
     vim
+    vesktop
   ];
    
   # Allow Unfree
