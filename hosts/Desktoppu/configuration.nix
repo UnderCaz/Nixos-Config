@@ -11,7 +11,7 @@
 
   kde-plasma6.enable = true;
   amdgpu.enable = true;
-  pipewireM.enable = true;
+  pipewire.enable = true;
   
   steam.enable = true;
   protonge.enable = true;
@@ -26,6 +26,7 @@
 
   # Boot Loader
    boot.loader.systemd-boot.enable = true;
+   boot.loader.efi.canTouchEfiVariables = true;
 
   # Networking 
    networking.hostName = "Desktoppu";   

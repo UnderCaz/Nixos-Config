@@ -5,5 +5,5 @@
     ./pipewire.nix
   ];
   
-  pipewireM.enable = lib.mkDefault true;
+  pipewire.enable = lib.mkDefault true;
 }

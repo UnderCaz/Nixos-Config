@@ -17,12 +17,31 @@
     system = "x86_64-linx";
   in
   {
-    nixosConfigurations.Desktoppu = nixpkgs-unstable.lib.nixosSystem 
+    nixosConfigurations = 
     {
-      modules = 
-      [
-        ./hosts/Desktoppu/configuration.nix
-      ];
+      Desktoppu = nixpkgs-unstable.lib.nixosSystem 
+      {
+        modules = 
+        [
+          ./hosts/Desktoppu/configuration.nix
+        ];
+      };
+
+      Laptoppu = nixpkgs-unstable.lib.nixosSystem
+      {
+        modules = 
+        [
+          ./hosts/Laptoppu/configuration.nix
+        ];
+      };
+
+      Javetopppu = nixpkgs-unstable.lib.nixosSystem
+      {
+        modules = 
+        [
+          ./hosts/Javetoppu/configuration.nix
+        ];
+      };
     };
   };
 }
