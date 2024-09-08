@@ -17,6 +17,7 @@
   protonge.enable = true;
   
   blender.enable = true;
+  kdenlive.enable = true;
 
   # Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -34,7 +35,8 @@
 
   # Packages
   environment.systemPackages = with pkgs; 
-  [ 
+  [  
+    vim
   ];
    
   # Allow Unfree

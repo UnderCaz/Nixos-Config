@@ -20,6 +20,7 @@
   firefox.enable = true;
   blender.enable = true;
   kdeconnect.enable = true;
+  kdenlive.enable = true;
   
   # Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -41,7 +42,6 @@
      openjdk17-bootstrap
      vesktop
      whatsapp-for-linux
-     kdePackages.kdenlive
      obs-studio
      git
    ];

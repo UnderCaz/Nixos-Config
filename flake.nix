@@ -35,7 +35,7 @@
         ];
       };
 
-      Javetopppu = nixpkgs-unstable.lib.nixosSystem
+      Javetoppu = nixpkgs-unstable.lib.nixosSystem
       {
         modules = 
         [
