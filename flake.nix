@@ -11,7 +11,6 @@
       config = 
       {
         allowUnfree = true;
-       # allowUnfreePredicate = (_: true);
       }; 
     };
 
@@ -21,7 +20,6 @@
       config = 
       {
         allowUnfree = true;
-       # allowUnfreePredicate = (_: true);
       }; 
     };
   in
@@ -37,8 +35,9 @@
         [
           {
             networking.hostName = name;
+            environment.systemPackages = with pkgs-stable; [ vim ];
           }
-  
+    
           (./hosts + /${name} + /configuration.nix)
         ];
      };
@@ -46,7 +45,19 @@
     {
       Desktoppu = mkNixosConfiguration "Desktoppu" "nixpkgs-unstable";  
       Laptoppu = mkNixosConfiguration "Laptoppu" "nixpkgs-unstable";
-      Javetoppu = mkNixosConfiguration "Javetoppu" "nixpkgs-unstable";
+      #Javetoppu = mkNixosConfiguration "Javetoppu" "nixpkgs-unstable"; #setup build hardware config
+    };
+   
+    # nix run commands
+    packages.${system}.pull = pkgs-unstable.writeShellApplication
+    {
+      name = "pull";
+      runtimeInputs = with pkgs-unstable; [ git ];
+      text = 
+      ''
+        chmod +x ./scripts/pull.sh
+        ./scripts/pull.sh
+      '';
     };
   };
 
@@ -54,5 +65,8 @@
   {
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    # Flake utils
+    utils.url = "github:numtide/flake-utils";
   };
 }

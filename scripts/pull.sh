@@ -1,7 +1,6 @@
 #!/bin/sh
 
 pushd /home/$(whoami)/.dotfiles
-  nix-shell -p git 
   git pull https://github.com/UnderCaz/Nixos-Config.git
   sudo nixos-rebuild build --flake .
 
@@ -15,6 +14,4 @@ pushd /home/$(whoami)/.dotfiles
   else
 	  sudo nixos-rebuild switch --flake .
   fi
-  
-  exit
 popd
