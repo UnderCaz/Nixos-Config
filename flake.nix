@@ -35,7 +35,7 @@
         [
           {
             networking.hostName = name;
-            environment.systemPackages = with pkgs-stable; [ vim ];
+            environment.systemPackages = with pkgs-unstable; [ vim git ];
           }
     
           (./hosts + /${name} + /configuration.nix)
