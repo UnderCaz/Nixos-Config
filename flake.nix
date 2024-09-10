@@ -116,7 +116,7 @@
       install =
       {
         type = "app";
-        program = "${inputs.self.packages.${system}.update}/bin/update";
+        program = "${inputs.self.packages.${system}.install}/bin/install";
       };
     };
   };
