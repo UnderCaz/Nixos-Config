@@ -84,12 +84,12 @@
           ${./scripts/build.sh}
         ''; 
       };
-      install = pkgs-unstable.writeShellApplication
+      setup = pkgs-unstable.writeShellApplication
       {
-        name = "install";
+        name = "setup";
         text = 
         ''
-          ${./scripts/install.sh}
+          ${./scripts/setup.sh}
         '';
       };
     };
@@ -113,10 +113,10 @@
         type = "app";
         program = "${inputs.self.packages.${system}.update}/bin/update";  
       };
-      install =
+      setup =
       {
         type = "app";
-        program = "${inputs.self.packages.${system}.install}/bin/install";
+        program = "${inputs.self.packages.${system}.setup}/bin/setup";
       };
     };
   };
