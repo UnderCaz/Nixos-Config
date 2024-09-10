@@ -19,6 +19,7 @@
   blender.enable = true;
   kdenlive.enable = true;
   kdeconnect.enable = true;
+  firefox.enable = true;
 
   # Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
