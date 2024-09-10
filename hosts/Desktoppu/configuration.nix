@@ -2,13 +2,6 @@
 
 {
 
-  imports =
-    [ 
-      ./hardware-configuration.nix
-      ../../modules/default.nix
-      ../../users/chal/user.nix
-    ];
-
   kde-plasma6.enable = true;
   amdgpu.enable = true;
   pipewire.enable = true;

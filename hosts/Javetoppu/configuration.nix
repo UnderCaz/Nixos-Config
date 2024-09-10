@@ -1,12 +1,6 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports =
-  [ 
-    ./hardware-configuration.nix
-    ../../modules/default.nix
-    ../../users/jave/user.nix
-  ];
   
   nvidiagpu.enable = true;
   pipewire.enable = true;

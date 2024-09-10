@@ -33,12 +33,17 @@
         specialArgs = { inherit inputs; };
         modules = 
         [
+          # Host settings
           {
             networking.hostName = name;
             environment.systemPackages = with pkgs-unstable; [ vim git ];
           }
-    
+          # Host configuration.nix
           (./hosts + /${name} + /configuration.nix)
+          # A hardware-configuration.nix that is generated every build
+          ./hardware-configuration.nix
+          # Modules 
+          ./modules
         ];
      };
     in

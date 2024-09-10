@@ -2,8 +2,8 @@
 {
   imports = 
   [
-    ./pipewire.nix
+    ./audio
+    ./printing
+    ./powermanagement
   ];
-  
-  pipewire.enable = lib.mkDefault true;
 }

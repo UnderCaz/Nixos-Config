@@ -2,9 +2,9 @@
 {
   imports = 
   [
-    ./services/default.nix
-    ./gpu/default.nix
-    ./desktop/default.nix
-    ./applications/default.nix
+    ./services
+    ./gpu
+    ./desktop
+    ./applications
   ];
 }
