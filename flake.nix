@@ -49,19 +49,30 @@
     };
    
     # nix run commands
-    packages.${system}.pull = pkgs-unstable.writeShellApplication
+    packages.${system} =
     {
-      name = "pull";
-      runtimeInputs = with pkgs-unstable; [ git ];
-      text = 
-      ''
-        ${./scripts/pull.sh}
-      '';
+      default = inputs.self.packages.${system}.pull;
+  
+      pull = pkgs-unstable.writeShellApplication
+      {
+        name = "pull";
+        runtimeInputs = with pkgs-unstable; [ git ];
+        text = 
+        ''
+          ${./scripts/pull.sh}
+        '';
+      };
     };
-    apps.pull =
+    
+    apps.${system} =
     {
-      type = "app";
-      program = "${inputs.self.packages.${system}.pull}/bin/pull";
+      default = inputs.self.apps.${system}.pull;
+ 
+      pull = 
+      {
+        type = "app";
+        program = "${inputs.self.packages.${system}.pull}/bin/runme"; 
+      };
     };
   };
 
