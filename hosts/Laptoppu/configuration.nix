@@ -1,6 +1,8 @@
 { config, lib, pkgs, ... }:
 
 {
+  imports = [ ../../users/chal/user.nix ]; 
+  
   pipewire.enable = true;
   kde-plasma6.enable = true;
   kdeconnect.enable = true;

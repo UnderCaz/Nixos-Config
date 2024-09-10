@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
+  imports = [ ../../users/chal/user.nix  ];
 
   kde-plasma6.enable = true;
   amdgpu.enable = true;

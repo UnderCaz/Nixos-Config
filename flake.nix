@@ -56,7 +56,7 @@
     # nix run commands
     packages.${system} =
     {
-      default = inputs.self.packages.${system}.pull;
+      default = inputs.self.packages.${system}.update;
   
       pull = pkgs-unstable.writeShellApplication
       {
@@ -67,16 +67,43 @@
           ${./scripts/pull.sh}
         '';
       };
+      build = pkgs-unstable.writeShellApplication
+      {
+        name = "build";
+        text = 
+        ''
+          ${./scripts/build.sh};
+        '';
+      };
+      update = pkgs-unstable.writeShellApplication
+      {
+        name = "update";
+        text =
+        ''
+          ${./scripts/pull.sh}
+          ${./scripts/build.sh}
+        ''; 
+      };
     };
     
     apps.${system} =
     {
-      default = inputs.self.apps.${system}.pull;
+      default = inputs.self.apps.${system}.update;
  
       pull = 
       {
         type = "app";
         program = "${inputs.self.packages.${system}.pull}/bin/pull"; 
+      };
+      build = 
+      {
+        type = "app";
+        program = "${inputs.self.packages.${system}.build}/bin/build";  
+      };
+      update =
+      {
+        type = "app";
+        program = "${inputs.self.packages.${system}.update}/bin/update";  
       };
     };
   };
