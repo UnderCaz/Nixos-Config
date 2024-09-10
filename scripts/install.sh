@@ -1,7 +1,7 @@
 #!/bin/sh
 
 pushd $HOME
-  rm -rf .dotfiles
+  rm -rf ./.dotfiles
   mkdir .dotfiles
   cd .dotfiles
   
