@@ -4,6 +4,7 @@ pushd $HOME/.dotfiles
     sudo nixos-generate-config --show-hardware-config > hardware-configuration.nix
     # Build system
     sudo nixos-rebuild build --flake .
+    rm result
     # Prompt user if they want to switch 
     read -p "Switch to this build? (y/n) " yn
     case $yn in 
@@ -14,5 +15,4 @@ pushd $HOME/.dotfiles
 	    *) echo not a valid response;
 		    exit 1;;
     esac
-    rm result
 popd
