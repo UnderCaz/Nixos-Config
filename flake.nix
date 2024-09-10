@@ -58,6 +58,11 @@
         ${./scripts/pull.sh}
       '';
     };
+    apps.pull =
+    {
+      type = "app";
+      program = "${inputs.self.packages.${system}.pull}/bin/pull";
+    };
   };
 
   inputs = 
