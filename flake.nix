@@ -55,8 +55,8 @@
       runtimeInputs = with pkgs-unstable; [ git ];
       text = 
       ''
-        chmod +x ./scripts/pull.sh
-        ./scripts/pull.sh
+        ${./scripts/pull.sh} 
+        "$@"
       '';
     };
   };
