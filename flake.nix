@@ -71,7 +71,7 @@
       pull = 
       {
         type = "app";
-        program = "${inputs.self.packages.${system}.pull}/bin/runme"; 
+        program = "${inputs.self.packages.${system}.pull}/bin/pull"; 
       };
     };
   };
