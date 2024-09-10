@@ -87,6 +87,7 @@
       setup = pkgs-unstable.writeShellApplication
       {
         name = "setup";
+        runtimeInputs = with pkgs-unstable; [ git ];
         text = 
         ''
           ${./scripts/setup.sh}
@@ -99,6 +100,12 @@
     {
       default = inputs.self.apps.${system}.update;
  
+      setup =
+      {
+        type = "app";
+        program = "${inputs.self.packages.${system}.setup}/bin/setup";  
+      };
+
       pull = 
       {
         type = "app";
@@ -113,11 +120,6 @@
       {
         type = "app";
         program = "${inputs.self.packages.${system}.update}/bin/update";  
-      };
-      setup =
-      {
-        type = "app";
-        program = "${inputs.self.packages.${system}.setup}/bin/setup";  
       };
     };
   };
