@@ -116,7 +116,7 @@
       setup =
       {
         type = "app";
-        program = "${inputs.self.packages.${system}.setup/bin/setup";  
+        program = "${inputs.self.packages.${system}.setup}/bin/setup";  
       };
     };
   };
