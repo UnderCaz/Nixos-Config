@@ -45,7 +45,7 @@
     {
       Desktoppu = mkNixosConfiguration "Desktoppu" "nixpkgs-unstable";  
       Laptoppu = mkNixosConfiguration "Laptoppu" "nixpkgs-unstable";
-      #Javetoppu = mkNixosConfiguration "Javetoppu" "nixpkgs-unstable"; #setup build hardware config
+      Javetoppu = mkNixosConfiguration "Javetoppu" "nixpkgs-unstable"; 
     };
    
     # nix run commands
