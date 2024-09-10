@@ -84,6 +84,14 @@
           ${./scripts/build.sh}
         ''; 
       };
+      install = pkgs-unstable.writeShellApplication
+      {
+        name = "install";
+        text = 
+        ''
+          ${./scripts/install.sh}
+        '';
+      };
     };
     
     apps.${system} =
@@ -104,6 +112,11 @@
       {
         type = "app";
         program = "${inputs.self.packages.${system}.update}/bin/update";  
+      };
+      install =
+      {
+        type = "app";
+        program = "${inputs.self.packages.${system}.update}/bin/update";
       };
     };
   };
