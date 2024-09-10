@@ -56,12 +56,11 @@
     # nix run commands
     packages.${system} =
     {
-      default = inputs.self.packages.${system}.update;
+      default = inputs.self.packages.${system}.install;
   
       pull = pkgs-unstable.writeShellApplication
       {
         name = "pull";
-        runtimeInputs = with pkgs-unstable; [ git ];
         text = 
         ''
           ${./scripts/pull.sh}
@@ -84,27 +83,20 @@
           ${./scripts/build.sh}
         ''; 
       };
-      setup = pkgs-unstable.writeShellApplication
+      install = pkgs-unstable.writeShellApplication
       {
-        name = "setup";
-        runtimeInputs = with pkgs-unstable; [ git ];
-        text = 
+        name = "install";
+        text =
         ''
-          ${./scripts/setup.sh}
+          ${./scripts/install.sh}
           ${./scripts/build.sh}
-        '';
+        ''; 
       };
     };
     
     apps.${system} =
     {
-      default = inputs.self.apps.${system}.update;
- 
-      setup =
-      {
-        type = "app";
-        program = "${inputs.self.packages.${system}.setup}/bin/setup";  
-      };
+      default = inputs.self.apps.${system}.install;
 
       pull = 
       {
@@ -121,9 +113,14 @@
         type = "app";
         program = "${inputs.self.packages.${system}.update}/bin/update";  
       };
+      install =
+      {
+        type = "app";
+        program = "${inputs.self.packages.${system}.install}/bin/install";  
+      };
     };
   };
-
+  # INPUTS
   inputs = 
   {
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
