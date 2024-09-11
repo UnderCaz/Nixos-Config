@@ -5,8 +5,8 @@
   
   nvidiagpu.enable = true;
   pipewire.enable = true;
-  gnome.enable = true;
-  
+  kde-plasma6.enable = true;  
+
   steam.enable = true;
   gamemode.enable = true;
   protonge.enable = true;
