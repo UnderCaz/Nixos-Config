@@ -36,6 +36,9 @@
       "inputs": {
         "nixpkgs-stable": "nixpkgs-stable",
         "nixpkgs-unstable": "nixpkgs-unstable",
+        "nixvim": [
+          "nixpkgs-unstable"
+        ],
         "utils": "utils"
       }
     },

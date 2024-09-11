@@ -2,6 +2,7 @@
 {
   imports = 
   [
+   ./editor
    ./game
    ./browsers
    ./kdeconnect.nix

@@ -36,7 +36,7 @@
           # Host settings
           {
             networking.hostName = name;
-            environment.systemPackages = with pkgs-unstable; [ vim git ];
+            environment.systemPackages = with pkgs-unstable; [ git ];
           }
           # Host configuration.nix
           (./hosts + /${name} + /configuration.nix)
@@ -128,5 +128,11 @@
 
     # Flake utils
     utils.url = "github:numtide/flake-utils";
+    # Nixvim
+    nixvim =
+    {
+      url = "github:nix-community/nixvim";
+      follows = "nixpkgs-unstable";
+    };
   };
 }
