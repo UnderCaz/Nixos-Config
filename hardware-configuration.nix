@@ -18,15 +18,15 @@
       fsType = "ext4";
     };
 
+  fileSystems."/home" =
+    { device = "/dev/disk/by-uuid/2ebbcfd0-2272-4f3c-9df5-6acc2b92a608";
+      fsType = "ext4";
+    };
+
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/9922-1A21";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
-    };
-
-  fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/2ebbcfd0-2272-4f3c-9df5-6acc2b92a608";
-      fsType = "ext4";
     };
 
   swapDevices = [ ];

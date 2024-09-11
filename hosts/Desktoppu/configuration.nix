@@ -38,7 +38,7 @@
      obs-studio
      git
    ];
-	# Allow Unfree
+   # Allow Unfree
    nixpkgs.config.allowUnfree = true;
 
   system.stateVersion = "24.05"; # DO NOT DELETE 

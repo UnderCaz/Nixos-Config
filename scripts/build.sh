@@ -15,4 +15,5 @@ pushd $HOME/.dotfiles
 	    *) echo not a valid response;
 		    exit 1;;
     esac
+    nix-collect-garbage
 popd

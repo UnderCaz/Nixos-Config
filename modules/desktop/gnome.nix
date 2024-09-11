@@ -19,6 +19,6 @@
         # Enable gnome
         desktopManager.gnome.enable = true;
       };
-    };
-  };
+   };
+ };
 }
