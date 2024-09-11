@@ -27,7 +27,7 @@
       nixosConfigurations = 
       let
          # Function that returns a NixosConfiguration set
-         mkNixosConfiguration = name: nixpkgs: inputs.${nixpkgs}.lib.nixosSystem
+         mkNixosConfiguration = name: nixpkgs: extramodules: inputs.${nixpkgs}.lib.nixosSystem
          {
             inherit system;
             specialArgs = { inherit inputs; };
@@ -35,6 +35,8 @@
             [
                # Host settings
                {
+                  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+                  nixpkgs.config.allowUnfree = true;
                   networking.hostName = name;
                   environment.systemPackages = with pkgs-unstable; [ git ];
                }
@@ -44,13 +46,53 @@
                ./hardware-configuration.nix
                # Modules 
                ./modules
-            ];
+            ] ++ extramodules;
          };
       in
       {
-         Desktoppu = mkNixosConfiguration "Desktoppu" "nixpkgs-unstable";  
-         Laptoppu = mkNixosConfiguration "Laptoppu" "nixpkgs-unstable";
-         Javetoppu = mkNixosConfiguration "Javetoppu" "nixpkgs-unstable"; 
+         Desktoppu = mkNixosConfiguration "Desktoppu" "nixpkgs-unstable" 
+         [
+            ./users/chal/user.nix
+            {
+               amdgpu.enable = true;
+               gnome.enable = true;
+               printing.enable = true;
+               firefox.enable = true;
+               steam.enable = true;
+               protonge.enable = true;
+               gamemode.enable = true;
+               kdeconnect.enable = true; 
+               kdenlive.enable = true;
+               blender.enable = true;
+               chrome.enable = true;
+            }
+         ];  
+         Laptoppu = mkNixosConfiguration "Laptoppu" "nixpkgs-unstable"
+         [
+            ./users/chal/user.nix
+            {
+              gnome.enable = true; 
+              printing.enable = true;
+              firefox.enable = true;
+              kdeconnect.enable = true;
+            }
+         ];
+         Javetoppu = mkNixosConfiguration "Javetoppu" "nixpkgs-unstable" 
+         [
+            ./users/jave/user.nix
+            {
+               nvidiagpu.enable = true;
+               gnome.enable = true;
+               firefox.enable = true;
+               chrome.enable = true;
+               steam.enable = true;
+               protonge.enable = true;
+               gamemode.enable = true;
+               blender.enable = true;  
+               kdenlive.enable = true;
+               kdeconnect.enable = true;
+            }               
+         ];
       };
 
       # nix run commands
@@ -128,7 +170,10 @@
       nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
       # Flake utils
-      utils.url = "github:numtide/flake-utils";
+      utils.url = "github:numtide/flake-utils"; # primarily going to use nix-systems
+      # Nix-systems
+      #nixsystems.url = "github:nix-systems/nix-systems";
+
       # Nixvim
       nixvim =
       {
