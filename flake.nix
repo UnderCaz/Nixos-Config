@@ -64,7 +64,6 @@
                kdeconnect.enable = true; 
                kdenlive.enable = true;
                blender.enable = true;
-               chrome.enable = true;
             }
          ];  
          Laptoppu = mkNixosConfiguration "Laptoppu" "nixpkgs-unstable"
