@@ -17,6 +17,8 @@
   [  
     discord
     whatsapp-for-linux
+    blender
+      kdenlive
   ];
 
   system.stateVersion = "24.05"; # DO NOT DELETE 

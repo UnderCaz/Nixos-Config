@@ -62,13 +62,10 @@
                amdgpu.enable = true;
                gnome.enable = true;
                printing.enable = true;
-               firefox.enable = true;
                steam.enable = true;
                protonge.enable = true;
                gamemode.enable = true;
                kdeconnect.enable = true; 
-               kdenlive.enable = true;
-               blender.enable = true;
             }
          ];  
          Laptoppu = mkNixosConfiguration "Laptoppu" "nixpkgs-unstable"
@@ -77,7 +74,6 @@
             {
               gnome.enable = true; 
               printing.enable = true;
-              firefox.enable = true;
               kdeconnect.enable = true;
             }
          ];
@@ -87,19 +83,12 @@
             {
                nvidiagpu.enable = true;
                gnome.enable = true;
-               firefox.enable = true;
-               chrome.enable = true;
                steam.enable = true;
                protonge.enable = true;
                gamemode.enable = true;
-               blender.enable = true;  
-               kdenlive.enable = true;
                kdeconnect.enable = true;
             }               
          ];
-         
-         # Home-Configurations
-
       };
 
       # nix run commands

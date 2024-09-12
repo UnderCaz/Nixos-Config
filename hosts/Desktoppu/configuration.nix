@@ -7,18 +7,20 @@
 
   # Networking 
    networking.networkmanager.enable = true;    
+
   # Time Zone
    time.timeZone = "Africa/Johannesburg";
+
   # Packages
    environment.systemPackages = with pkgs; [ 
-     vim 
-     wget
      netbeans
      openjdk17-bootstrap
      whatsapp-for-linux
      obs-studio
-     git
      discord
+     blender
+     blender-hip
+     kdenlive
    ];
 
   system.stateVersion = "24.05"; # DO NOT DELETE 

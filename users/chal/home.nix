@@ -1,12 +1,20 @@
 { config, pkgs, ... }:
 
 {
+   imports = 
+   [
+      ./git.nix
+   ];
+
    home.username = "chal";
    home.homeDirectory = "/home/chal";
 
    # Packages
    home.packages =  with pkgs;
    [
+      vim 
+      firefox
+      kdenlive
    ];
 
    # Dotfiles
