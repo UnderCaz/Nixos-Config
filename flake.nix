@@ -35,21 +35,26 @@
             [
                # Host settings
                {
+                  networking.hostName = name;
+
                   nix.settings.experimental-features = [ "nix-command" "flakes" ];
                   nixpkgs.config.allowUnfree = true;
-                  networking.hostName = name;
-                  environment.systemPackages = with pkgs-unstable; [ git ];
+                  environment.systemPackages = with pkgs-unstable; [ git home-manager ];
                }
+
                # Host configuration.nix
                (./hosts + /${name} + /configuration.nix)
+
                # A hardware-configuration.nix that is generated every build
                ./hardware-configuration.nix
+
                # Modules 
                ./modules
             ] ++ extramodules;
          };
       in
       {
+         # System Configurations
          Desktoppu = mkNixosConfiguration "Desktoppu" "nixpkgs-unstable" 
          [
             ./users/chal/user.nix
@@ -92,6 +97,9 @@
                kdeconnect.enable = true;
             }               
          ];
+         
+         # Home-Configurations
+
       };
 
       # nix run commands
@@ -172,6 +180,13 @@
       utils.url = "github:numtide/flake-utils"; # primarily going to use nix-systems
       # Nix-systems
       #nixsystems.url = "github:nix-systems/nix-systems";
+
+      # Home-Manager
+      home-manager = 
+      {
+         url = "github:nix-community/home-manager";
+         inputs.nixpkgs.follows = "nixpkgs-unstable";
+      };
 
       # Nixvim
       nixvim =
