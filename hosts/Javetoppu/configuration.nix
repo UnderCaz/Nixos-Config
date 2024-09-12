@@ -15,8 +15,7 @@
   # Packages
   environment.systemPackages = with pkgs; 
   [  
-    vim
-    vesktop
+    discord
     whatsapp-for-linux
   ];
 

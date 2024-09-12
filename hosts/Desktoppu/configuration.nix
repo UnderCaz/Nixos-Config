@@ -15,10 +15,10 @@
      wget
      netbeans
      openjdk17-bootstrap
-     vesktop
      whatsapp-for-linux
      obs-studio
      git
+     discord
    ];
 
   system.stateVersion = "24.05"; # DO NOT DELETE 
