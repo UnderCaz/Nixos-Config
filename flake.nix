@@ -61,6 +61,7 @@
             {
                amdgpu.enable = true;
                gnome.enable = true;
+               tailscale.enable = true;
                printing.enable = true;
                steam.enable = true;
                protonge.enable = true;
@@ -73,6 +74,7 @@
             ./users/chal/user.nix
             {
               gnome.enable = true; 
+              tailscale.enable = true
               printing.enable = true;
               kdeconnect.enable = true;
             }

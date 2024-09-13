@@ -3,6 +3,7 @@
   imports = 
   [
     ./audio
+      ./vpn
     ./printing
     ./powermanagement
   ];

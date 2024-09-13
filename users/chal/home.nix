@@ -4,6 +4,7 @@
    imports = 
    [
       ./git.nix
+      ./gnomeExtensions.nix
    ];
 
    home.username = "chal";
