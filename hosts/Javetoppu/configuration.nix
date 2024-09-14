@@ -19,6 +19,7 @@
     whatsapp-for-linux
     blender
       kdenlive
+      obs-studio
   ];
 
   system.stateVersion = "24.05"; # DO NOT DELETE 
