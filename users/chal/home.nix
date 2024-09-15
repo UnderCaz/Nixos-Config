@@ -1,32 +1,33 @@
 { config, pkgs, ... }:
 
 {
-   imports = 
-   [
-      ./git.nix
-      ./nixvim.nix
-      ./gnomeExtensions.nix
-   ];
+  imports = 
+  [
+    ./git.nix
+    ./nixvim.nix
+    ./gnomeExtensions.nix
+  ];
 
-   home.username = "chal";
-   home.homeDirectory = "/home/chal";
+  home.username = "chal";
+  home.homeDirectory = "/home/chal";
 
-   # Packages
-   home.packages =  with pkgs;
-   [
-      vim 
-      firefox
-   ];
+# Packages
+  home.packages =  with pkgs;
+  [
+    firefox
+  ];
 
-   # Dotfiles
-   home.file = {
-   };
+# Dotfiles
+  home.file = 
+  {
+  };
 
-   # Env Variables
-   home.sessionVariables = {
-   };
+# Env Variables
+  home.sessionVariables = 
+  {
+  };
 
-   programs.home-manager.enable = true;
+  programs.home-manager.enable = true;
 
-   home.stateVersion = "24.05"; 
+  home.stateVersion = "24.05"; 
 }
