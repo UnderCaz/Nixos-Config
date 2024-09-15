@@ -1,15 +1,11 @@
-{ config, lib, pkgs, ... }:
+{ inputs, config, lib, pkgs, ... }:
 {
-   options =
+   options =   
    {
       nixvim.enable = lib.mkEnableOption "enables nixvim";
    };
 
    config = lib.mkIf config.nixvim.enable 
    {
-      programs.nixvim =
-      {
-         enable = true;
-      };
    };
 }
