@@ -183,7 +183,7 @@
       nixvim =
       {
          url = "github:nix-community/nixvim";
-         follows = "nixpkgs-unstable";
+         inputs.nixpkgs.follows = "nixpkgs-unstable";
       };
    };
 }
