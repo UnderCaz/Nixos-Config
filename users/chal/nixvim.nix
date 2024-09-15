@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, lib, self, pkgs, ... }:
 {
    imports = 
    [
@@ -8,6 +8,8 @@
    programs.nixvim = 
    {
       enable = true;
+      enableMan = true;
+      defaultEditor = true;
       
       colorschemes.catppuccin.enable = true;
       
@@ -29,6 +31,7 @@
          };
       };
       
+      globals.mapleader = " ";
       opts =
       {
          number = true;

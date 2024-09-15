@@ -6,7 +6,6 @@
       ./git.nix
       ./nixvim.nix
       ./gnomeExtensions.nix
-      ./theme.nix
    ];
 
    home.username = "chal";
