@@ -18,6 +18,8 @@
     remmina
     libreoffice-qt
     hunspell
+    netbeans
+    openjdk17-bootstrap
   ];
 
 # Dotfiles
