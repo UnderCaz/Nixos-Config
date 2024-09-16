@@ -13,8 +13,6 @@
 
   # Packages
    environment.systemPackages = with pkgs; [ 
-     netbeans
-     openjdk17-bootstrap
      whatsapp-for-linux
      obs-studio
      discord
