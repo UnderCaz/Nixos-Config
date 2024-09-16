@@ -16,6 +16,8 @@
   [
     firefox
     remmina
+    libreoffice-qt
+    hunspell
   ];
 
 # Dotfiles
