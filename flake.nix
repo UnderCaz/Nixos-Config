@@ -1,17 +1,29 @@
 {
   description = "Systems Flake";
 
-  outputs = 
-  {
-    self,
-    nixpkgs-unstable,
-    nix-systems
-  }@inputs: 
+  outputs = { ... }@inputs: 
   let
-    eachSystem = nixpkgs-unstable.lib.genAttrs (import nix-systems);
-  in{
-
-  };
+    eachSystem = inputs.nixpkgs-unstable.lib.genAttrs (import inputs.nix-systems);
+  in
+  {
+    # NixosConfiguratinos
+    nixosConfiguration = # A function can be made to automate this
+    {
+      system = inputs.lib.nixosSystem 
+      {
+	system = "x86_64-linux"; # Should be able to replace this
+	modules = 
+	[
+	  ./hosts/Desktoppu # Will import the default.nix file
+	  ./hosts/hardware-configuration.nix
+	];
+	specialArgs = 
+	{
+	  inherit inputs;
+	};
+      };
+    };
+  }; # End of outputs
 
   inputs = {
     # Nixpkgs
@@ -19,6 +31,7 @@
     # Nix-systems
     nix-systems.url = "github:nix-systems/default";
     # Home-manager
-#    home-manager.url = 
-  };
+    #home-manager.url = "github:nix-community/home-manager";
+    #home-manager.inputs.follows = "nixpkgs-unstable";
+  }; # End of inputs
 }
