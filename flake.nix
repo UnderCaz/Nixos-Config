@@ -3,27 +3,25 @@
 
   outputs = { ... }@inputs: 
   let
+    # Config  
     eachSystem = inputs.nixpkgs-unstable.lib.genAttrs (import inputs.nix-systems);
   in
   {
-    # NixosConfiguratinos
-    nixosConfiguration = # A function can be made to automate this
-    {
-      system = inputs.lib.nixosSystem 
+    # Host configuration
+    nixosConfiguration = 
+    { 
+      Desktoppu = lib.nixosSystem 
       {
-	system = "x86_64-linux"; # Should be able to replace this
+	system = "x86_64-linux"; # Replace this with nixSystems
 	modules = 
 	[
-	  ./hosts/Desktoppu # Will import the default.nix file
+	  ./hosts/Desktoppu
 	  ./hosts/hardware-configuration.nix
-	];
-	specialArgs = 
-	{
-	  inherit inputs;
-	};
-      };
+	  ./users/chal
+	]; 
+      }; 
     };
-  }; # End of outputs
+  }; 
 
   inputs = {
     # Nixpkgs
@@ -31,7 +29,10 @@
     # Nix-systems
     nix-systems.url = "github:nix-systems/default";
     # Home-manager
-    #home-manager.url = "github:nix-community/home-manager";
-    #home-manager.inputs.follows = "nixpkgs-unstable";
-  }; # End of inputs
+    home-manager = 
+    {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+  }; 
 }

@@ -1,8 +1,13 @@
 { config, pkgs, ... }:
 
 {
-  home.username = "chal";
-  home.homeDirectory = "/home/chal";
+  # Should be configuring this in user not here
+  #home.username = "chal";
+  #home.homeDirectory = "/home/chal";
+  imports = 
+  [
+    ./configurations
+  ];
 
   home.packages = [
   ];

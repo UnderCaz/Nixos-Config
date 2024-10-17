@@ -1,8 +1,8 @@
 { config, lib, pkgs, ...}:
 {
-  options =
+  options.networkmanager =
   {
-    networkmanager.enable = lib.mkEnableOption "Enables NetworkManager";
+    enable = lib.mkEnableOption "Enables NetworkManager";
   };
 
   config = lib.mkIf config.networkmanager.enable 
